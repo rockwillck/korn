@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Korn | Korean, Made Easy</title>
+	<meta name="viewport" content="width=device-width,initial-scale=1" />
+	<meta name="description" content="Happy Holidays to all!" />
+	<link rel="stylesheet" type="text/css" href="style.css" />
+	<link rel="stylesheet" type="text/css" href="story.css" />
+	<link rel="stylesheet" type="text/css" href="base.css" />
+	<link rel="icon" href="korn_color.png">
+</head>
+<body>
+	<div class="everything">
+		<div class="progress" id="progress">
+		</div>
+		<article class="scroller">
+			<section>
+				<h2>Your Stories</h2>
+				<ul id="yourStories">
+				</ul>
+			</section>
+			<section>
+				<h2>All Stories</h2>
+				<ul id="allStories">
+	
+				</ul>
+			</section>
+			<section>
+				<h2>Dictionary</h2>
+				<table class="vocab" id="dict">
+				  </table>
+			</section>
+	  </article>
+	  <button class="invisibleTrigger" id="invisTrig" hidden onclick="dismissPopup()"></button>
+	  <div class="sheet" id="popup">
+		<div class="content">
+			<div class="text">
+			</div>
+			<div class="questions">
+			</div>
+		</div>
+	  </div>
+	</div>
+	
+  <script src="app.js"></script>
+</body>
+</html>

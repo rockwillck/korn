@@ -1,0 +1,186 @@
+:root {
+	--incorrect:rgb(235, 136, 136);
+	--correct:rgb(168, 240, 152);
+}
+
+html,
+body {
+  font-family: inherit;
+  margin: 0;
+  transition: 0.2s;
+  font-size: max(12px, 2vh);
+}
+
+article {
+  display: flex;
+  overflow-y: hidden;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+}
+
+section {
+  min-width: 100vw;
+  scroll-snap-align: start;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  border-right: solid;
+  border-width: 1px;
+}
+
+section > h2 {
+	/* background-color: rgb(212, 212, 212); */
+	border-bottom: solid;
+	border-width: 1px;
+	width: 100%;
+	padding: 10px;
+	box-sizing: border-box;
+	margin: 0;
+}
+
+section > ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	overflow-y: scroll;
+}
+
+.story {
+	width: 100%;
+	background-color: transparent;
+	text-align: left;
+	border: none;
+	transition: 0.2s;
+	background:linear-gradient(to right, rgb(0, 0, 0) 50%, white 0);
+	background-size: 200%;
+	background-position: right;
+	position: relative;
+	font-family: inherit;
+}
+.story:hover {
+	background-position: left;
+	color: white;
+}
+.story:active {
+	opacity: 0.7;
+}
+section > ul > li > .story {
+	display: flex;
+	align-items: center;
+	/* background-color: rgb(237, 237, 237); */
+	border-bottom: solid;
+	border-width: 1px;
+	padding: 10px;
+}
+@media (orientation:portrait) {
+	.story {
+		flex-direction: column;
+	}
+}
+@media (orientation:portrait) {
+	.story > img {
+		border-radius: 5px;
+		max-width: 100%;
+	}
+}
+@media (orientation:landscape) {
+	.story > img {
+		border-radius: 5px;
+		flex: 1;
+		height: 100%;
+		min-width: 10px;
+	}
+}
+.description {
+	margin-left: 20px;
+	flex: 5;
+	font-size: max(12px, 1vh);
+}
+.description > ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	display: flex;
+}
+.description > ul > li {
+	display: inline;
+	background-color: black;
+	color: white;
+	border: solid;
+	border-width: 1px;
+	border-color: white;
+	border-radius: 5px;
+	padding: 10px;
+	box-sizing: border-box;
+	margin-right: 10px;
+	text-transform: lowercase;
+}
+.add {
+	border: solid;
+	border-width: 1px;
+	background-color: transparent;
+	border-radius: 100vmin;
+	width: 6vmin;
+	height: 6vmin;
+	font-size: 10px;
+	padding: 0;
+	margin: 10px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	color: inherit;
+	transition: 0.2s;
+}
+.add:hover {
+	background-color: white;
+	color: black;
+	border-color: white;
+}
+
+.sheet {
+	background-color: white;
+	border-right: solid;
+	border-left: solid;
+	border-top: solid;
+	border-width: 1px;
+	box-sizing: border-box;
+	width: 96%;
+	height: 90%;
+	scale:1 0;
+	transform-origin: bottom;
+	position: absolute;
+	top: 10%;
+	left: 2%;
+	border-radius:10px 10px 0px 0px;
+	transition: 0.2s;
+	z-index: 3;
+}
+
+.invisibleTrigger {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	border: none;
+	background-color: transparent;
+	z-index: 2;
+	backdrop-filter: blur(10px);
+	-webkit-backdrop-filter: blur(10px);
+}
+
+section > .vocab {
+	text-align: left;
+	margin: 10px;
+}
+td {
+	border: solid;
+	border-width: 1px;
+	padding: 5px;
+	border-radius: 5px;
+}
+td:nth-of-type(2n+1) {
+	background-color: black;
+	color: white;
+}
