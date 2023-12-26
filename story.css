@@ -30,7 +30,6 @@ h1, h2 {
     padding: 10px;
     box-sizing: border-box;
     border-radius: 5px;
-    flex: 1;
     transition: 0.2s;
     overflow-y: scroll;
 }
