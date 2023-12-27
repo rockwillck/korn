@@ -71,6 +71,7 @@ h1, h2 {
 }
 pre {
     font-family: inherit;
+    line-height: 40px;
 }
 
 .choices {
