@@ -8,6 +8,8 @@ class Story {
     }
 }
 
+const english = /^[A-Za-z0-9]*$/
+
 var vocabulary = localStorage.getItem("vocab") != undefined ? JSON.parse(localStorage.getItem("vocab")) : {}
 
 var allStories = [
@@ -72,22 +74,7 @@ function registerUserStories() {
                     if (bit == "1") {
                         currentBits[bitI] = 1
                         let btn = document.getElementsByClassName("replaceable")[bitI]
-                        console.log(document.getElementsByClassName("replaceable"))
-                        let old = btn.innerText
-
-                        let crct = allStrArrays[bitI]
-
-                        btn.innerText = crct.trim()
-                        btn.onmouseenter = (e) => {
-                            btn.innerText = old
-                        }
-                        btn.onmouseleave = (e) => {
-                            btn.innerText = crct.trim()
-                        }
-
-                        btn.style.backgroundColor = "black"
-                        btn.style.color = "white"
-                        btn.style.borderColor = "black"
+                        updateBtn(btn, allStrArrays[bitI])
                     }
                     bitI++
                 }
@@ -174,24 +161,30 @@ function registerDict() {
 }
 registerDict()
 
-function updateChoice(btn, choice, choiceBtn) {
+function updateBtn(btn, choice) {
     let old = btn.innerText
-    btn.innerText = choice.trim()
-    btn.onmouseenter = (e) => {
-        btn.innerText = old
-    }
-    btn.onmouseleave = (e) => {
+    if (english.test(choice.trim())) {
         btn.innerText = choice.trim()
     }
     if (btn.style.backgroundColor != "black") {
-        if (vocabulary[old] == undefined) {
-            vocabulary[old] = []
+        if (english.test(choice.trim())) {
+            if (vocabulary[old] == undefined) {
+                vocabulary[old] = []
+            }
+            vocabulary[old] = vocabulary[old].concat(choice.trim())
+        } else {
+            if (vocabulary[choice.trim()] == undefined) {
+                vocabulary[choice.trim()] = []
+            }
+            vocabulary[choice.trim()] = vocabulary[choice.trim()].concat(old.trim())
         }
-        vocabulary[old] = vocabulary[old].concat(choice.trim())
     }
     btn.style.backgroundColor = "black"
     btn.style.color = "white"
     btn.style.borderColor = "black"
+}
+function updateChoice(btn, choice, choiceBtn) {
+    updateBtn(btn, choice)
     for (c of document.getElementById("questionsChoices").getElementsByClassName("choice")) {
         c.style.backgroundColor = "var(--incorrect)"
     }
