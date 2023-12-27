@@ -193,3 +193,8 @@ td > a {
 	text-decoration: underline;
 	border: none;
 }
+td > a:hover {
+	background-color: transparent;
+	color: inherit;
+	opacity: 0.3;
+}

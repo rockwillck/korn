@@ -153,7 +153,7 @@ function registerDict() {
     for (word of Object.keys(vocabulary)) {
         document.getElementById("dict").innerHTML += `<tr>
         <td><a href="https://korean.dict.naver.com/koendict/#/search?query=${word}" target="_blank">${word}</a></td>
-        <td>${vocabulary[word].filter(function (v, i, self) {return i == self.indexOf(v)}).join(" / ")}</td>
+        <td>${vocabulary[word].filter(function (v, i, self) {return i == self.indexOf(v)}).map(x => "<a href='https://translate.yandex.com/en/?source_lang=en&target_lang=ko&text=" + x + "'>" + x + "</a>").join(" / ")}</td>
       </tr>`
     }
 
