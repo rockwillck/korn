@@ -8,7 +8,7 @@ class Story {
     }
 }
 
-const english = /^[A-Za-z0-9]*$/
+const english = /^[a-zA-Z\s\.,'!?"-]*$/
 
 var vocabulary = localStorage.getItem("vocab") != undefined ? JSON.parse(localStorage.getItem("vocab")) : {}
 
@@ -152,7 +152,7 @@ function registerDict() {
   </tr>`
     for (word of Object.keys(vocabulary)) {
         document.getElementById("dict").innerHTML += `<tr>
-        <td>${word}</td>
+        <td><a href="https://korean.dict.naver.com/koendict/#/search?query=${word}" target="_blank">${word}</a></td>
         <td>${vocabulary[word].filter(function (v, i, self) {return i == self.indexOf(v)}).join(" / ")}</td>
       </tr>`
     }
