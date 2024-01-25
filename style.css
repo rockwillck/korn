@@ -11,6 +11,19 @@ body {
   font-size: max(12px, 2vh);
 }
 
+a {
+    border: solid;
+    border-width: 1px;
+    border-radius: 10px;
+    padding: 10px;
+    background-color: white;
+    font-size: inherit;
+    font-family: inherit;
+    border-color: black;
+    transition: 0.2s;
+    color: black;
+}
+
 article {
   display: flex;
   overflow-y: hidden;
@@ -197,4 +210,35 @@ td > a:hover {
 	background-color: transparent;
 	color: inherit;
 	opacity: 0.3;
+}
+
+.everything {
+	/* position: absolute; */
+	height: calc(100vh - 60px);
+	box-sizing: border-box;
+}
+.navbar {
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	height: 60px;
+	width: 100%;
+	background-color: black;
+	color: white;
+	display: flex;
+}
+.navbar > a {
+	flex:1;
+	background-color: transparent;
+	color: white;
+	border:none;
+	border-radius: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.navbar > a > img {
+	height: 100%;
+	filter: invert();
+	-webkit-filter: invert();
 }

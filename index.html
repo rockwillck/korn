@@ -12,11 +12,26 @@
 <body>
 	<div class="hero">
         <div class="title">
-            <img src="korn.png">
+            <!-- <img src="korn.png"> -->
+            <p>Learn korean,</p>
             <h1>Korn.</h1>
-            <p>Learn korean through stories</p>
+			<p>through stories.</p>
             <a href="app.html">let's go!</a>
         </div>
     </div>
+	<script>
+		for (let element of document.getElementsByClassName("title")[0].children) {
+			let final = element.innerText
+			element.innerText = ""
+			let time = 1
+			let id = setInterval(() => {
+				element.innerText = final.slice(0, time)
+				time++
+				if (time > final.length) {
+					clearInterval(id);
+				}
+			}, 100)
+		}
+	</script>
 </body>
 </html>
