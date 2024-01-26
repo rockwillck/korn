@@ -1,5 +1,5 @@
 body {
-    font-size: max(12px, 5vh);
+    font-size: max(12px, 2.5vh);
 }
 
 img {
@@ -14,7 +14,7 @@ p {
 }
 h1 {
     margin: 0;
-    font-size: max(12px, 20vh);
+    font-size: max(12px, 10vh);
 }
 
 canvas {

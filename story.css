@@ -104,3 +104,11 @@ pre {
 .choice:active {
     opacity: 0.7;
 }
+
+@media (max-width: 950px) {
+    .navbar > a > p {
+        scale: 0;
+        width: 0;
+        height: 0;
+    }
+}
