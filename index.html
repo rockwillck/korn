@@ -15,10 +15,28 @@
             <!-- <img src="korn.png"> -->
             <p>Learn korean,</p>
             <h1>Korn</h1>
-			<p>through stories</p>
-            <a href="app.html">let's go!</a>
+			<p>through stories.</p>
+            <a href="app.html"  class="banner">let's go!</a>
         </div>
     </div>
+	<div class="content">
+		<h2>Our Story</h2>
+		<p>as a group of Korean-Americans from Texas, we found that a lot of people want to learn korean - but competing services were aimed at teaching languages like Spanish and French, which are very different from Korean.</p>
+		<p>So, we built <u>Korn</u>, a language learning service built from the very beginning for Korean.</p>
+		<h2>How it works</h2>
+		<p><u>Korn</u> doesn't teach you how to speak korean. You won't become fluent in Korean using <u>Korn</u>. Instead, you'll be able to read and absorb Korean media, the main reason many people want to learn korean.</p>
+		<p><u>Korn</u> doesn't have "lessons". Instead, you read an engaging story - starting from completely English and progressing to more and more of the story being written in Korean.</p>
+		<h2>Pricing</h2>
+		<p>Korn is completely free thanks to serverless architecture.</p>
+		<h2>Thanks</h2>
+		<ul>
+			<li>William Choi-Kim: Developer</li>
+			<li>Yura Song: Editor</li>
+		</ul>
+		<h2>Contribute</h2>
+		<p>If you're interested in contributing to Korn, please visit <a href="contribute.html" class="link">the contribution page</a>.</p>
+		<a href="app.html" class="banner">start learning!</a>
+	</div>
 	<script>
 		for (let element of document.getElementsByClassName("title")[0].children) {
 			let final = element.innerText
@@ -27,6 +45,20 @@
 			let id = setInterval(() => {
 				element.innerText = final.slice(0, time)
 				time++
+				if (time > final.length) {
+					clearInterval(id);
+				}
+			}, 100)
+		}
+		for (let element of document.getElementsByTagName("h2")) {
+			let final = element.innerText
+			element.innerText = ""
+			let time = 1
+			let id = setInterval(() => {
+				if (element.getBoundingClientRect().top - window.innerHeight < 0 && element.getBoundingClientRect().top - window.innerHeight > -window.innerHeight) {
+					element.innerText = final.slice(0, time)
+				time++
+				}
 				if (time > final.length) {
 					clearInterval(id);
 				}
